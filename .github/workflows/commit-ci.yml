@@ -1,8 +1,4 @@
 name: commit ci
-on:
-  push:
-    branches:
-      - '*'
 jobs:
   build:
     runs-on: macos-14
