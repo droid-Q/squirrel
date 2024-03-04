@@ -24,7 +24,7 @@ cp -R download/dist librime/
 cp -R download/share/opencc librime/share/
 
 # skip building librime and opencc-data; use downloaded artifacts
-make copy-rime-binaries copy-opencc-data
+make librime
 
 echo "SQUIRREL_BUNDLED_RECIPES=${SQUIRREL_BUNDLED_RECIPES}"
 
