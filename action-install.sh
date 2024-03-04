@@ -23,6 +23,14 @@ mkdir -p librime/share
 cp -R download/dist librime/
 cp -R download/share/opencc librime/share/
 
+cd librime
+bash install-plugins.sh \
+  hchunhui/librime-lua \
+  lotem/librime-octagram \
+  rime/librime-predict
+cd plugins/lua
+git clone https://github.com/hchunhui/librime-lua.git -b thirdparty --depth=1 thirdparty
+cd ../../../
 # skip building librime and opencc-data; use downloaded artifacts
 make librime
 
