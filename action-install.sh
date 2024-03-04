@@ -3,15 +3,14 @@
 set -e
 
 cd librime
+make deps
 bash install-plugins.sh \
   hchunhui/librime-lua \
   lotem/librime-octagram \
   rime/librime-predict
 cd plugins/lua
 git clone https://github.com/hchunhui/librime-lua.git -b thirdparty --depth=1 thirdparty
-cd ../../
-make deps
-cd ../
+cd ../../../
 # skip building librime and opencc-data; use downloaded artifacts
 make librime
 
