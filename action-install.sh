@@ -2,27 +2,6 @@
 
 set -e
 
-rime_version=1.8.5
-rime_git_hash=08dd95f
-
-rime_archive="rime-${rime_git_hash}-macOS.tar.bz2"
-rime_download_url="https://github.com/rime/librime/releases/download/${rime_version}/${rime_archive}"
-
-rime_deps_archive="rime-deps-${rime_git_hash}-macOS.tar.bz2"
-rime_deps_download_url="https://github.com/rime/librime/releases/download/${rime_version}/${rime_deps_archive}"
-
-mkdir -p download && (
-    cd download
-    [ -z "${no_download}" ] && curl -LO "${rime_download_url}"
-    tar --bzip2 -xf "${rime_archive}"
-    [ -z "${no_download}" ] && curl -LO "${rime_deps_download_url}"
-    tar --bzip2 -xf "${rime_deps_archive}"
-)
-
-mkdir -p librime/share
-cp -R download/dist librime/
-cp -R download/share/opencc librime/share/
-
 cd librime
 bash install-plugins.sh \
   hchunhui/librime-lua \
