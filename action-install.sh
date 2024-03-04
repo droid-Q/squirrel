@@ -30,7 +30,9 @@ bash install-plugins.sh \
   rime/librime-predict
 cd plugins/lua
 git clone https://github.com/hchunhui/librime-lua.git -b thirdparty --depth=1 thirdparty
-cd ../../../
+cd ../../
+make deps
+cd ../
 # skip building librime and opencc-data; use downloaded artifacts
 make librime
 
